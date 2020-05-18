@@ -10,7 +10,10 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 export const Content = styled.div`
   width: 100%;
@@ -20,12 +23,20 @@ export const Content = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+  }
 `;
 export const Buttons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   button {
     height: 50px;
@@ -51,6 +62,12 @@ export const Buttons = styled.div`
 
     svg {
       margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      height: 30px;
+      font-size: 11px;
+      margin-bottom: 4px;
     }
   }
   button.logout {
