@@ -2,33 +2,73 @@ import React, { useEffect, useState } from 'react';
 
 import { FiTrash2, FiEdit } from 'react-icons/fi';
 
+import Swal from 'sweetalert2';
+
+import { toast } from 'react-toastify';
+
 import { format } from 'date-fns';
 
 import ptBR from 'date-fns/locale/pt-BR';
 
 import api from '~/services/api';
 
-import { Container, Content, TypeDragon } from './styles';
+import { Container, Content } from './styles';
 
 function Dragons() {
   const [dragons, setDragons] = useState([]);
 
-  useEffect(() => {
-    async function getDragons() {
-      try {
-        const response = await api.get('dragon');
-        setDragons(response.data);
-      } catch (error) {
-        console.log('error :>> ', error);
-      }
+  const getDragons = async () => {
+    try {
+      const response = await api.get('dragon');
+      setDragons(response.data);
+    } catch (error) {
+      console.log('error :>> ', error);
     }
+  };
+
+  const deleteDragon = async id => {
+    try {
+      await api.delete(`dragon/${id}`);
+
+      setDragons(dragons.filter(dragon => dragon.id !== id));
+
+      return toast.success('Dragão deletado com sucesso!', {
+        autoClose: 3000,
+        containerId: 'alerts',
+      });
+    } catch (error) {
+      return toast.error('Falha ao deletar o dragão.', {
+        autoClose: 3000,
+        containerId: 'alerts',
+      });
+    }
+  };
+
+  useEffect(() => {
     getDragons();
   }, []);
+
+  const deleteDragonConfirm = id => {
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: 'Você não poderá reverter isso!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#008489',
+      cancelButtonColor: '#ef2e4f',
+      confirmButtonText: 'Sim!',
+      cancelButtonText: 'Cancelar',
+    }).then(result => {
+      if (result.value) {
+        deleteDragon(id);
+      }
+    });
+  };
 
   return (
     <Container>
       <Content>
-        <h1>Dragões cadastrados (3)</h1>
+        <h1>Dragões cadastrados {`(${dragons.length})`}</h1>
 
         <ul>
           {dragons.map(({ id, name, type, imageUrl, createdAt }) => {
@@ -55,7 +95,11 @@ function Dragons() {
                 <button type="button" onClick={() => {}}>
                   <FiEdit size={20} color="#41414d" />
                 </button>
-                <button className="delete" type="button" onClick={() => {}}>
+                <button
+                  className="delete"
+                  type="button"
+                  onClick={() => deleteDragonConfirm(id)}
+                >
                   <FiTrash2 size={20} color="#ef2e4f" />
                 </button>
               </li>

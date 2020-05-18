@@ -18,10 +18,12 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+   
   }
 
   body {
     -webkit-font-smoothing: antialiased;
+    background: linear-gradient(90deg, #06e774, #93f3ec);
   }
 
   body, input, button {
@@ -48,6 +50,11 @@ export default createGlobalStyle`
  }
   
  
-
+ span.inputError{
+    font-size: 10px;
+    display: block;
+    margin-top: 3px;
+    color: #e02041;
+}
 
 `;

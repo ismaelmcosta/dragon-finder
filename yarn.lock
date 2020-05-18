@@ -4864,7 +4864,7 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-history@^4.9.0:
+history@^4.10.1, history@^4.9.0:
   version "4.10.1"
   resolved "https://registry.yarnpkg.com/history/-/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
   integrity sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==
@@ -9775,6 +9775,11 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+sweetalert2@^9.10.13:
+  version "9.10.13"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.10.13.tgz#785c8ae0124d0cdf8e9bbd68c380373a1c4e2c15"
+  integrity sha512-JiZtO9SQdnS/Uvlqw5MlWpGpYVqH/eBQi7u61+Oxba7ZA4vfX0tSdyzQsiMk56HTUw8Nk8IvNPvfbt3WR3FOsQ==
 
 symbol-observable@^1.2.0:
   version "1.2.0"
