@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 
 import { format } from 'date-fns';
 
+import { useHistory } from 'react-router-dom';
+
 import ptBR from 'date-fns/locale/pt-BR';
 
 import api from '~/services/api';
@@ -16,6 +18,8 @@ import { Container, Content } from './styles';
 
 function Dragons() {
   const [dragons, setDragons] = useState([]);
+
+  const history = useHistory();
 
   const getDragons = async () => {
     try {
@@ -42,6 +46,10 @@ function Dragons() {
         containerId: 'alerts',
       });
     }
+  };
+
+  const editDragon = id => {
+    history.push(`/dragon/edit/${id}`);
   };
 
   useEffect(() => {
@@ -92,7 +100,7 @@ function Dragons() {
                   })}
                 </strong>
 
-                <button type="button" onClick={() => {}}>
+                <button type="button" onClick={() => editDragon(id)}>
                   <FiEdit size={20} color="#41414d" />
                 </button>
                 <button

@@ -23,6 +23,15 @@ export default function auth(state = INITIAL_STATE, action) {
         break;
       }
 
+      case '@dragon/UPDATE_DRAGON_SUCCESS': {
+        toast.success('Dragão atualizado com sucesso!', {
+          autoClose: 3000,
+          containerId: 'alerts',
+        });
+
+        break;
+      }
+
       default:
     }
   });
