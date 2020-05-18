@@ -17,6 +17,8 @@ export function* signIn({ payload }) {
     });
 
     yield put(signInSuccess(email));
+
+    return history.push('/dragons');
   } catch (err) {
     yield put(signFailure());
     return toast.error('Falha na autenticação, verifique seus dados', {

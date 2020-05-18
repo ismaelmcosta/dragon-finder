@@ -19,6 +19,7 @@ export function* addDragon({ payload }) {
     });
 
     yield put(addDragonSuccess(payload));
+    return history.push('/dragons');
   } catch (err) {
     yield put(addDragonFailure());
     return toast.error('Falha ao criar dragão!', {
@@ -39,7 +40,7 @@ export function* updateDragon({ payload }) {
 
     yield put(updateDragonSuccess());
 
-    history.push('dragons');
+    return history.push('/dragons');
   } catch (err) {
     yield put(addDragonFailure());
     return toast.error('Falha ao atualizar o dragão!', {

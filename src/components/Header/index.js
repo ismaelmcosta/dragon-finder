@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
@@ -7,12 +6,13 @@ import { FiPlus, FiLogOut } from 'react-icons/fi';
 
 import { signOut } from '~/store/modules/auth/actions';
 
+import history from '~/services/history';
+
 import { Container, Content, Buttons } from './styles';
 
 import Logo from '~/components/Logo';
 
 function Header() {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   function handleSignOut() {

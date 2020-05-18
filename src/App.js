@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -10,9 +10,9 @@ import { Provider } from 'react-redux';
 
 import '~/config/ReactotronConfig';
 
-import Routes from '~/routes';
-
 import history from '~/services/history';
+
+import Routes from '~/routes';
 
 import { store, persistor } from './store';
 
@@ -25,13 +25,13 @@ function App() {
         <Router history={history}>
           <Routes />
           <GlobalCSS />
+          <ToastContainer
+            enableMultiContainer
+            containerId="alerts"
+            position={toast.POSITION.TOP_RIGHT}
+          />
         </Router>
       </PersistGate>
-      <ToastContainer
-        enableMultiContainer
-        containerId={'alerts'}
-        position={toast.POSITION.TOP_RIGHT}
-      />
     </Provider>
   );
 }

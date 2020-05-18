@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useHistory } from 'react-router-dom';
-
 import { useForm } from 'react-hook-form';
 
 import { FiLogIn } from 'react-icons/fi';
@@ -15,19 +13,15 @@ import { Container, Content } from './styles';
 import logo from '~/assets/logo.svg';
 
 function SignIn() {
-  const { register, handleSubmit, errors } = useForm();
-  const history = useHistory();
+  const { register, handleSubmit } = useForm();
+
   const dispatch = useDispatch();
 
-  const { loading, signed } = useSelector(state => state.auth);
+  const { loading } = useSelector(state => state.auth);
 
   function onSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
   }
-
-  useEffect(() => {
-    if (signed) history.push('/dragons');
-  }, [signed]);
 
   return (
     <Container>

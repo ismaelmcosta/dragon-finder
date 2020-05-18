@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
-import { useHistory } from 'react-router-dom';
-
 import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 
 import api from '~/services/api';
+
+import history from '~/services/history';
 
 import {
   addDragonRequest,
@@ -23,7 +23,6 @@ function Dragon({ match }) {
   const [dragonType, setDragonType] = useState(null);
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const { register, handleSubmit, errors } = useForm();
 
@@ -33,10 +32,6 @@ function Dragon({ match }) {
     } else {
       dispatch(addDragonRequest({ data }));
     }
-
-    setTimeout(() => {
-      history.push('/dragons');
-    }, 1000);
   };
 
   useEffect(() => {
