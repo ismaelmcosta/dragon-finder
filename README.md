@@ -1,6 +1,6 @@
 
 
-- Demo: https://dragon-finder.ismaelmcosta.vercel.app
+- Demo: https://dragon-finder.vercel.app
 
 # Instalação
 
