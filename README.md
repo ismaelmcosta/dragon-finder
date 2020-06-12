@@ -1,6 +1,6 @@
 
 
-- url de preview: https://dragonfinder.netlify.app
+- Demo: https://dragon-finder.ismaelmcosta.vercel.app
 
 # Instalação
 
